@@ -61,7 +61,7 @@ body::before {
 .button-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o botão principal */
+    justify-content: center;
 }
 
 .discord-button {
@@ -73,18 +73,23 @@ body::before {
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out;
+
+    /* --- NOVO: Estilos para alinhar o ícone e o texto --- */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Espaço entre o ícone e o texto */
 }
 
 .discord-button:hover {
     background-color: #4f5bda;
 }
 
-/* --- NOVO: Estilos para a seção de links sociais --- */
 .social-links {
-    margin-top: 50px; /* Espaço acima dos ícones */
-    margin-bottom: 40px; /* Espaço abaixo, antes do footer */
+    margin-top: 50px;
+    margin-bottom: 40px;
     display: flex;
-    gap: 25px; /* Espaço entre os ícones */
+    gap: 25px;
 }
 
 .social-links a {
@@ -95,7 +100,7 @@ body::before {
 
 .social-links a:hover {
     opacity: 1;
-    transform: translateY(-3px); /* Efeito de "levantar" */
+    transform: translateY(-3px);
 }
 
 footer {
@@ -105,7 +110,6 @@ footer {
     opacity: 0.5;
 }
 
-/* --- Mágica para Telas Grandes --- */
 @media (min-width: 768px) {
     .container {
         flex-direction: row; 
@@ -126,6 +130,6 @@ footer {
     }
 
     .button-container {
-        justify-content: flex-start; /* Alinha o botão principal à esquerda */
+        justify-content: flex-start;
     }
 }

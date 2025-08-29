@@ -58,11 +58,10 @@ body::before {
     margin-bottom: 40px;
 }
 
-/* --- NOVO: Estilos para o contêiner de botões --- */
 .button-container {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espaço entre os botões */
+    justify-content: center; /* Centraliza o botão principal */
 }
 
 .discord-button {
@@ -80,16 +79,23 @@ body::before {
     background-color: #4f5bda;
 }
 
-/* --- NOVO: Estilos para o botão do Instagram --- */
-.social-button {
-    color: #ffffff;
-    transition: transform 0.2s ease-in-out;
-    opacity: 0.8;
+/* --- NOVO: Estilos para a seção de links sociais --- */
+.social-links {
+    margin-top: 50px; /* Espaço acima dos ícones */
+    margin-bottom: 40px; /* Espaço abaixo, antes do footer */
+    display: flex;
+    gap: 25px; /* Espaço entre os ícones */
 }
 
-.social-button:hover {
-    transform: scale(1.15);
+.social-links a {
+    color: #ffffff;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-links a:hover {
     opacity: 1;
+    transform: translateY(-3px); /* Efeito de "levantar" */
 }
 
 footer {
@@ -118,9 +124,8 @@ footer {
         flex: 2; 
         align-items: flex-start;
     }
-    
-    /* NOVO: Garante que os botões fiquem alinhados à esquerda no desktop */
+
     .button-container {
-        justify-content: flex-start;
+        justify-content: flex-start; /* Alinha o botão principal à esquerda */
     }
 }

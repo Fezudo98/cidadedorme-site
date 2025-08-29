@@ -67,22 +67,37 @@ body::before {
 .discord-button {
     background-color: #5865F2;
     color: #ffffff;
-    padding: 15px 30px;
+    padding: 12px 24px;
     font-size: 1.2em;
     font-weight: 700;
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.2s ease-in-out;
-
-    /* --- NOVO: Estilos para alinhar o ícone e o texto --- */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; /* Espaço entre o ícone e o texto */
+    gap: 12px;
 }
 
 .discord-button:hover {
     background-color: #4f5bda;
+}
+
+/* --- NOVO: Estilos para o fundo circular do ícone --- */
+.discord-icon-wrapper {
+    background-color: rgba(0, 0, 0, 0.15); /* Cor sutilmente mais escura */
+    width: 36px;
+    height: 36px;
+    border-radius: 50%; /* Faz o círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajusta o tamanho do SVG dentro do círculo */
+.discord-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
 }
 
 .social-links {

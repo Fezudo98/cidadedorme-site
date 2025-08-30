@@ -8,10 +8,8 @@ body {
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
@@ -20,10 +18,7 @@ body {
 body::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(10, 5, 20, 0.7);
     z-index: -1;
 }
@@ -79,14 +74,85 @@ body::before {
     gap: 12px;
 }
 
-.discord-button:hover {
-    background-color: #4f5bda;
+.discord-button:hover { background-color: #4f5bda; }
+.discord-button svg { width: 28px; height: 28px; }
+
+.showcase {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 80px;
+    text-align: center;
 }
 
-.discord-button svg {
-    width: 28px;
-    height: 28px;
+.showcase h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #ffffff;
 }
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: transparent;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.carousel-slide {
+    display: flex;
+    /* ATUALIZADO PARA 10 IMAGENS */
+    width: 1000%; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    /* ATUALIZADO PARA 10 IMAGENS */
+    width: 10%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.carousel-button:hover { background-color: rgba(0, 0, 0, 0.8); }
+.carousel-button.prev { left: 15px; }
+.carousel-button.next { right: 15px; }
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dot.active, .dot:hover { background-color: rgba(255, 255, 255, 0.9); }
 
 .social-links {
     margin-top: 50px;
@@ -107,100 +173,11 @@ body::before {
 }
 
 footer {
-    position: absolute;
-    bottom: 10px;
+    margin-top: auto;
+    padding-top: 20px;
     font-size: 0.8em;
     opacity: 0.5;
 }
-
-/* --- ESTILOS DA VITRINE (CARROSSEL) --- */
-.showcase {
-    width: 100%;
-    max-width: 900px;
-    margin-top: 60px;
-    text-align: center;
-}
-
-.showcase h2 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-    color: #ffffff;
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-    /* --- AJUSTE CHAVE --- */
-    aspect-ratio: 16 / 9; /* Força a proporção de tela de vídeo */
-    max-height: 500px; /* Limite máximo de altura */
-    background-color: transparent; /* Fundo transparente para as bordas */
-}
-
-.carousel-slide {
-    display: flex;
-    width: 800%;
-    height: 100%; /* Garante que o slide ocupe a altura do contêiner */
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide img {
-    width: 12.5%;
-    height: 100%; /* Garante que a imagem ocupe a altura do contêiner */
-    flex-shrink: 0;
-    object-fit: contain; /* MUDANÇA: 'contain' para mostrar a imagem inteira sem cortar */
-}
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    z-index: 10;
-}
-
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.carousel-button.prev {
-    left: 15px;
-}
-
-.carousel-button.next {
-    right: 15px;
-}
-
-.carousel-dots {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.dot.active, .dot:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
 
 @media (min-width: 768px) {
     .container {
@@ -221,8 +198,9 @@ footer {
         align-items: flex-start;
     }
 
-    .button-container {
-        justify-content: flex-start;
-    }
+    .button-container { justify-content: flex-start; }
 }
 
+@media (max-width: 767px) {
+    .showcase h2 { font-size: 1.5em; }
+}

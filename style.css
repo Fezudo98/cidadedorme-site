@@ -64,11 +64,10 @@ body::before {
     justify-content: center;
 }
 
-/* --- RECOMEÇANDO OS ESTILOS DO BOTÃO --- */
 .discord-button {
     background-color: #5865F2;
     color: #ffffff;
-    padding: 12px 24px 12px 18px; /* Padding ajustado para o ícone */
+    padding: 12px 24px 12px 18px;
     font-size: 1.15em;
     font-weight: 700;
     text-decoration: none;
@@ -85,12 +84,9 @@ body::before {
 }
 
 .discord-button svg {
-    /* O ícone não precisa de wrapper, estilizamos ele diretamente */
     width: 28px;
     height: 28px;
 }
-
-/* --- FIM DOS ESTILOS DO BOTÃO --- */
 
 .social-links {
     margin-top: 50px;
@@ -117,35 +113,11 @@ footer {
     opacity: 0.5;
 }
 
-@media (min-width: 768px) {
-    .container {
-        flex-direction: row; 
-        text-align: left;
-        gap: 40px;
-    }
-    
-    .poster {
-        flex: 1; 
-        max-width: 350px;
-        max-height: none;
-        margin-bottom: 0;
-    }
-
-    .content {
-        flex: 2; 
-        align-items: flex-start;
-    }
-
-    .button-container {
-        justify-content: flex-start;
-    }
-}
-
 /* --- ESTILOS DA VITRINE (CARROSSEL) --- */
 .showcase {
     width: 100%;
     max-width: 900px;
-    margin-top: 60px; /* Espaço acima da vitrine */
+    margin-top: 60px;
     text-align: center;
 }
 
@@ -158,21 +130,28 @@ footer {
 .carousel-container {
     position: relative;
     width: 100%;
-    overflow: hidden; /* A mágica que esconde os outros slides */
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    /* --- AJUSTE CHAVE --- */
+    aspect-ratio: 16 / 9; /* Força a proporção de tela de vídeo */
+    max-height: 500px; /* Limite máximo de altura */
+    background-color: #000; /* Fundo preto para as bordas */
 }
 
 .carousel-slide {
     display: flex;
-    width: 800%; /* 100% * 8 imagens */
+    width: 800%;
+    height: 100%; /* Garante que o slide ocupe a altura do contêiner */
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
-    width: 12.5%; /* 100% / 8 imagens */
+    width: 12.5%;
+    height: 100%; /* Garante que a imagem ocupe a altura do contêiner */
     flex-shrink: 0;
-    object-fit: cover;
+    object-fit: contain; /* MUDANÇA: 'contain' para mostrar a imagem inteira sem cortar */
 }
 
 .carousel-button {
@@ -220,4 +199,29 @@ footer {
 
 .dot.active, .dot:hover {
     background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; 
+        text-align: left;
+        gap: 40px;
+    }
+    
+    .poster {
+        flex: 1; 
+        max-width: 350px;
+        max-height: none;
+        margin-bottom: 0;
+    }
+
+    .content {
+        flex: 2; 
+        align-items: flex-start;
+    }
+
+    .button-container {
+        justify-content: flex-start;
+    }
 }

@@ -8,10 +8,8 @@ body {
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+    align-items: center; /* Centraliza tudo no corpo */
+    padding: 40px 20px; /* Espaçamento no topo e base */
     box-sizing: border-box;
     position: relative;
     z-index: 1;
@@ -88,36 +86,11 @@ body::before {
     height: 28px;
 }
 
-.social-links {
-    margin-top: 50px;
-    margin-bottom: 40px;
-    display: flex;
-    gap: 25px;
-}
-
-.social-links a {
-    color: #ffffff;
-    opacity: 0.6;
-    transition: all 0.2s ease-in-out;
-}
-
-.social-links a:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-footer {
-    position: absolute;
-    bottom: 10px;
-    font-size: 0.8em;
-    opacity: 0.5;
-}
-
-/* --- ESTILOS DA VITRINE (CARROSSEL) --- */
+/* --- ESTILOS DA VITRINE (CARROSSEL) - VERSÃO DEFINITIVA --- */
 .showcase {
     width: 100%;
     max-width: 900px;
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;
 }
 
@@ -130,28 +103,29 @@ footer {
 .carousel-container {
     position: relative;
     width: 100%;
+    /* A MUDANÇA MAIS IMPORTANTE: Altura controlada e proporção */
+    aspect-ratio: 16 / 9;
+    max-height: 500px;
     overflow: hidden;
     border-radius: 10px;
+    background-color: #000;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-
-    /* --- AJUSTE CHAVE --- */
-    aspect-ratio: 16 / 9; /* Força a proporção de tela de vídeo */
-    max-height: 500px; /* Limite máximo de altura */
-    background-color: #000; /* Fundo preto para as bordas */
 }
 
 .carousel-slide {
     display: flex;
     width: 800%;
-    height: 100%; /* Garante que o slide ocupe a altura do contêiner */
+    height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
     width: 12.5%;
-    height: 100%; /* Garante que a imagem ocupe a altura do contêiner */
+    height: 100%;
     flex-shrink: 0;
-    object-fit: contain; /* MUDANÇA: 'contain' para mostrar a imagem inteira sem cortar */
+    /* A SEGUNDA MUDANÇA MAIS IMPORTANTE: 'cover' para preencher e cortar */
+    object-fit: cover;
+    object-position: top center; /* Prioriza o topo da imagem */
 }
 
 .carousel-button {
@@ -173,13 +147,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.carousel-button.prev {
-    left: 15px;
-}
-
-.carousel-button.next {
-    right: 15px;
-}
+.carousel-button.prev { left: 15px; }
+.carousel-button.next { right: 15px; }
 
 .carousel-dots {
     text-align: center;
@@ -197,10 +166,33 @@ footer {
     transition: background-color 0.2s;
 }
 
-.dot.active, .dot:hover {
-    background-color: rgba(255, 255, 255, 0.9);
+.dot.active, .dot:hover { background-color: rgba(255, 255, 255, 0.9); }
+
+.social-links {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 25px;
 }
 
+.social-links a {
+    color: #ffffff;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+footer {
+    /* Removido o position:absolute para um fluxo mais natural */
+    margin-top: auto; /* Empurra para o final */
+    padding-top: 20px;
+    font-size: 0.8em;
+    opacity: 0.5;
+}
 
 @media (min-width: 768px) {
     .container {
@@ -221,7 +213,9 @@ footer {
         align-items: flex-start;
     }
 
-    .button-container {
-        justify-content: flex-start;
-    }
+    .button-container { justify-content: flex-start; }
+}
+
+@media (max-width: 767px) {
+    .showcase h2 { font-size: 1.5em; }
 }

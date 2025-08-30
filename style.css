@@ -140,3 +140,84 @@ footer {
         justify-content: flex-start;
     }
 }
+
+/* --- ESTILOS DA VITRINE (CARROSSEL) --- */
+.showcase {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 60px; /* Espaço acima da vitrine */
+    text-align: center;
+}
+
+.showcase h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* A mágica que esconde os outros slides */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.carousel-slide {
+    display: flex;
+    width: 800%; /* 100% * 8 imagens */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 12.5%; /* 100% / 8 imagens */
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+.carousel-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dot.active, .dot:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}

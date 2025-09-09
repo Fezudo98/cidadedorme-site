@@ -31,13 +31,21 @@
 
 <body>
     <main class="container">
-        <!-- H1 ADICIONADO AQUI -->
-        <h1 class="visually-hidden">Cidade Dorme para Discord</h1>
-        <img src="input_file_1.png" alt="Logo Cidade Dorme" class="poster">
+        <!-- O H1 oculto é bom para SEO, mantemos ele -->
+        <h1 class="visually-hidden">Cidade Dorme: O Jogo de Máfia e Lobisomem para Discord</h1>
+        
+        <div class="poster-container">
+            <img src="input_file_1.png" alt="Logo Cidade Dorme" class="poster">
+        </div>
         
         <div class="content">
+            <!-- Título e Subtítulo visíveis para o usuário -->
+            <h2>A caçada começou no seu Discord.</h2>
+            <p class="subtitle">
+                Na quietude da noite, pactos são selados e facas são afiadas. Quando o sol nascer, um traidor será revelado.
+            </p>
             <p class="summary">
-                Na quietude da noite, pactos são selados e facas são afiadas. Quando o sol nascer, a cidade acordará para um pesadelo: um traidor está entre eles. Este bot transforma seu Discord em um palco de intriga e paranoia. Com gerenciamento automático de voz, sons imersivos e papéis que mudam o jogo, a única coisa com que você precisa se preocupar é em quem confiar. Reúna seus amigos. A caçada começou.
+                Este bot transforma seu servidor em um palco de intriga e paranoia. Com gerenciamento automático de voz, sons imersivos e papéis que mudam o jogo, a única coisa com que você precisa se preocupar é em quem confiar. Reúna seus amigos.
             </p>
 
             <div class="button-container">
@@ -101,6 +109,7 @@
     </footer>
 
     <script>
+        // O SCRIPT JAVASCRIPT PERMANECE O MESMO
         document.addEventListener('DOMContentLoaded', () => {
             const carouselContainer = document.querySelector('.carousel-container');
             const slide = document.querySelector('.carousel-slide');
@@ -127,7 +136,7 @@
 
             function goToSlide(index) {
                 if (index < 0 || index >= totalSlides) return;
-                const offset = -index * (100 / totalSlides);
+                const offset = -index * 100; // Simplificado para uma imagem por vez
                 slide.style.transform = `translateX(${offset}%)`;
                 currentIndex = index;
                 updateDots();

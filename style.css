@@ -140,16 +140,19 @@ body::before {
 /* --- CARROSSEL --- */
 .carousel-slide {
     display: flex;
-    width: calc(100% * 10); /* 100% * número de imagens */
+    /* Usa o número total de imagens para o cálculo */
+    width: calc(100% * 10); 
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
-    width: 10%; /* 100% / número de imagens */
+    /* A largura de cada imagem é 100% dividido pelo total de imagens */
+    width: calc(100% / 10);
     height: 100%;
     flex-shrink: 0;
-    object-fit: cover; /* Mudei para cover para preencher o espaço */
+    /* 'contain' garante que a imagem inteira apareça, sem cortes */
+    object-fit: contain; 
 }
 
 .carousel-button {

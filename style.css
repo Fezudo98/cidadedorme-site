@@ -109,17 +109,76 @@ body::before {
 .discord-button svg { width: 28px; height: 28px; }
 
 /* --- SEÇÕES ADICIONAIS --- */
-.trailer-section, .showcase {
+.trailer-section, .showcase, .roles-section {
     width: 100%;
     max-width: 900px;
     margin-top: 80px;
     text-align: center;
 }
 
-.trailer-section h2, .showcase h2 {
+.trailer-section h2, .showcase h2, .roles-section h2 {
     font-size: 1.8em;
     margin-bottom: 25px;
     color: #ffffff;
+}
+
+/* --- NOVA SEÇÃO SOBRE O JOGO --- */
+.about-section {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 80px;
+    text-align: center;
+    background-color: rgba(23, 18, 38, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.about-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.about-content {
+    text-align: left;
+    line-height: 1.7;
+}
+
+.about-content h3 {
+    font-size: 1.3em;
+    color: #beadff; /* Cor de destaque */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.about-content p, .about-content li {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-content ul, .about-content ol {
+    padding-left: 25px;
+}
+
+.about-content code {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.author-note {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.9em !important;
+    font-style: italic;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .video-container, .carousel-container {
@@ -140,18 +199,15 @@ body::before {
 /* --- CARROSSEL --- */
 .carousel-slide {
     display: flex;
-    /* Usa o número total de imagens para o cálculo */
     width: calc(100% * 10); 
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
-    /* A largura de cada imagem é 100% dividido pelo total de imagens */
     width: calc(100% / 10);
     height: 100%;
     flex-shrink: 0;
-    /* 'contain' garante que a imagem inteira apareça, sem cortes */
     object-fit: contain; 
 }
 
@@ -194,21 +250,12 @@ body::before {
 
 /* --- SEÇÃO DE FUNÇÕES (PAPÉIS) --- */
 .roles-section {
-    width: 100%;
-    max-width: 1100px; /* Mais largo para comportar o grid */
-    margin-top: 80px;
-    text-align: center;
-}
-
-.roles-section h2 {
-    font-size: 1.8em;
-    margin-bottom: 35px;
-    color: #ffffff;
+    max-width: 1100px;
 }
 
 .roles-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Padrão de 1 coluna para mobile */
+    grid-template-columns: 1fr;
     gap: 30px;
     text-align: left;
 }
@@ -225,7 +272,7 @@ body::before {
     background-color: rgba(23, 18, 38, 0.7);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden; /* Essencial para o efeito de acordeão */
+    overflow: hidden;
 }
 
 .role-trigger {
@@ -252,7 +299,7 @@ body::before {
 }
 
 .role-trigger.active::after {
-    transform: rotate(45deg); /* Transforma o '+' em um 'x' */
+    transform: rotate(45deg);
 }
 
 .role-trigger:hover {
@@ -320,7 +367,9 @@ footer {
 
 @media (max-width: 767px) {
     .content h2 { font-size: 1.8em; }
-    .trailer-section h2, .showcase h2, .roles-section h2 { font-size: 1.5em; }
+    .trailer-section h2, .showcase h2, .roles-section h2, .about-section h2 { font-size: 1.5em; }
+    .about-content h3 { font-size: 1.1em; }
+    .about-content p, .about-content li { font-size: 0.95em; }
 }
 
 @media (min-width: 768px) {
@@ -329,7 +378,7 @@ footer {
         text-align: left;
         gap: 40px;
         padding: 40px;
-        align-items: center; /* Alinha verticalmente a imagem e o texto */
+        align-items: center;
     }
     
     .poster-container {
@@ -339,7 +388,7 @@ footer {
     }
 
     .content {
-        flex: 1.5; /* Dá um pouco mais de espaço para o texto */
+        flex: 1.5;
         align-items: flex-start;
     }
 
@@ -348,12 +397,12 @@ footer {
     }
 
     .roles-grid {
-        grid-template-columns: repeat(2, 1fr); /* Duas colunas para tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 1024px) {
     .roles-grid {
-        grid-template-columns: repeat(3, 1fr); /* Três colunas para desktops */
+        grid-template-columns: repeat(3, 1fr);
     }
 }

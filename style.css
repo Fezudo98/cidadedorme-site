@@ -192,6 +192,92 @@ body::before {
 
 .dot.active, .dot:hover { background-color: rgba(255, 255, 255, 0.9); }
 
+/* --- SEÇÃO DE FUNÇÕES (PAPÉIS) --- */
+.roles-section {
+    width: 100%;
+    max-width: 1100px; /* Mais largo para comportar o grid */
+    margin-top: 80px;
+    text-align: center;
+}
+
+.roles-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 35px;
+    color: #ffffff;
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão de 1 coluna para mobile */
+    gap: 30px;
+    text-align: left;
+}
+
+.role-category h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.role-card {
+    margin-bottom: 10px;
+    background-color: rgba(23, 18, 38, 0.7);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Essencial para o efeito de acordeão */
+}
+
+.role-trigger {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-trigger::after {
+    content: '+';
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.role-trigger.active::after {
+    transform: rotate(45deg); /* Transforma o '+' em um 'x' */
+}
+
+.role-trigger:hover {
+    background-color: rgba(88, 101, 242, 0.3);
+}
+
+.role-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.role-content p {
+    padding: 0 20px 15px 20px;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.role-content p strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
 /* --- LINKS SOCIAIS E RODAPÉ --- */
 .social-links {
     margin-top: 60px;
@@ -234,7 +320,7 @@ footer {
 
 @media (max-width: 767px) {
     .content h2 { font-size: 1.8em; }
-    .trailer-section h2, .showcase h2 { font-size: 1.5em; }
+    .trailer-section h2, .showcase h2, .roles-section h2 { font-size: 1.5em; }
 }
 
 @media (min-width: 768px) {
@@ -259,5 +345,15 @@ footer {
 
     .button-container { 
         justify-content: flex-start; 
+    }
+
+    .roles-grid {
+        grid-template-columns: repeat(2, 1fr); /* Duas colunas para tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    .roles-grid {
+        grid-template-columns: repeat(3, 1fr); /* Três colunas para desktops */
     }
 }

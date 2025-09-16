@@ -59,7 +59,7 @@
         </div>
     </main>
 
-    <!-- NOVA SEÇÃO DO TRAILER -->
+    <!-- SEÇÃO DO TRAILER -->
     <section class="trailer-section">
         <h2>Assista ao Teaser</h2>
         <div class="video-container">
@@ -70,6 +70,7 @@
         </div>
     </section>
 
+    <!-- SEÇÃO DO CARROSSEL -->
     <section class="showcase">
         <h2>O Jogo em Ação</h2>
         <div class="carousel-container">
@@ -91,10 +92,163 @@
         <div class="carousel-dots"></div>
     </section>
 
+    <!-- NOVA SEÇÃO DE FUNÇÕES (PAPÉIS) -->
+    <section class="roles-section">
+        <h2>Conheça os Papéis</h2>
+        <div class="roles-grid">
+            <!-- Categoria Cidade -->
+            <div class="role-category">
+                <h3>🏙️ Funções da Cidade</h3>
+                <div class="role-card">
+                    <button class="role-trigger">Prefeito</button>
+                    <div class="role-content">
+                        <p><strong>Indulto Político:</strong> Você sobrevive à primeira tentativa de linchamento contra você.</p>
+                        <p><strong>Decreto:</strong> Uma vez por jogo, durante a votação, use /decreto para fazer seu voto valer 3 pontos e o de cada cidadão valer 2, bloqueando a sabotagem dos Vilões.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Anjo</button>
+                    <div class="role-content">
+                        <p><strong>Milagre:</strong> Uma vez por jogo, à noite, use /reviver [nome_jogador_morto] para trazer alguém de volta à vida.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Xerife</button>
+                    <div class="role-content">
+                        <p><strong>Disparar:</strong> Você tem 2 balas (ou 1 em jogos com 6 ou menos jogadores) e só pode atirar uma vez por dia. Use /disparar [nome_jogador] para eliminar um alvo. Isso revelará sua identidade.</p>
+                        <p><strong>Condições Especiais:</strong> Se atirar no Assassino Alfa, a Cidade vence. Se atirar no Prefeito, os Vilões vencem.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Guarda-costas</button>
+                    <div class="role-content">
+                        <p><strong>Proteger:</strong> Toda noite, use /proteger [nome_jogador] para defender alguém de um ataque dos vilões.</p>
+                        <p><strong>Resistência Única:</strong> Você sobrevive à primeira vez que sofreria dano. Na segunda vez, você morre.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Detetive</button>
+                    <div class="role-content">
+                        <p><strong>Marcar Alvos:</strong> Toda noite, use /marcar para vigiar um ou dois jogadores. Se um deles for morto, você receberá o nome de dois suspeitos: o assassino e um inocente.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Vidente de Aura</button>
+                    <div class="role-content">
+                        <p><strong>Investigar Aura:</strong> Toda noite, use /investigar_aura [nome_jogador] para saber se a facção do alvo é 'Cidade' ou 'Não-Cidade'.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Médium</button>
+                    <div class="role-content">
+                        <p><strong>Converter Fantasma:</strong> Uma vez por jogo, à noite, use /mediunidade [nome_jogador_morto] para transformar um jogador morto em um Fantasma sob seu controle.</p>
+                        <p><strong>Visão Espectral:</strong> O Fantasma pode /assombrar um jogador por noite, e ambos recebem um relatório de quem visitou o alvo e quem o alvo visitou.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Cidadão Comum</button>
+                    <div class="role-content">
+                        <p><strong>Dever Cívico:</strong> Você não tem habilidades especiais. Use sua voz e seu voto para ajudar a cidade a encontrar os vilões.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria Vilões -->
+            <div class="role-category">
+                <h3>👺 Funções dos Vilões</h3>
+                 <div class="role-card">
+                    <button class="role-trigger">Assassino Alfa</button>
+                    <div class="role-content">
+                        <p><strong>Voto de Liderança:</strong> Seu voto na eliminação noturna dos Vilões tem peso 2.</p>
+                        <p><strong>Sabotar:</strong> Uma vez por jogo, durante o dia, use /sabotar para forçar a chegada da noite, cancelando qualquer votação.</p>
+                        <p><strong>Possuir:</strong> Durante a noite, use /possuir [nome] para tentar converter um jogador. Após 3 pontos de possessão, o alvo se torna um Assassino Simples. (Apenas em jogos com 11+ jogadores).</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Assassino Júnior</button>
+                    <div class="role-content">
+                        <p><strong>Marca da Vingança:</strong> Na primeira noite, use /escolher_alvo [nome]. Se você morrer, seu alvo morre junto com você.</p>
+                        <p><strong>Confundir:</strong> Toda noite, use /confundir [nome] para fazer com que o alvo erre a sua próxima ação, redirecionando-a para um alvo aleatório.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Cúmplice</button>
+                    <div class="role-content">
+                        <p><strong>Espionagem:</strong> Na primeira noite, use /escolher_alvo [nome] para descobrir o papel exato de um jogador.</p>
+                        <p><strong>Fraudar Votação:</strong> Uma vez por jogo, durante a votação, use /fraudar para embaralhar aleatoriamente o alvo de todos os votos.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Assassino Simples</button>
+                    <div class="role-content">
+                        <p><strong>Votar:</strong> Você participa da votação noturna dos Vilões para escolher quem será eliminado.</p>
+                        <p><strong>Conexão Criminosa:</strong> Ao ser convertido, você descobre quem são seus novos companheiros Vilões.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria Solo -->
+            <div class="role-category">
+                <h3>🎭 Funções Solo</h3>
+                <div class="role-card">
+                    <button class="role-trigger">Palhaço</button>
+                    <div class="role-content">
+                        <p><strong>Vitória por Linchamento:</strong> Se você for o jogador escolhido para ser linchado durante o dia, você vence o jogo sozinho!</p>
+                    </div>
+                </div>
+                 <div class="role-card">
+                    <button class="role-trigger">Fofoqueiro</button>
+                    <div class="role-content">
+                        <p><strong>Fofoca Póstuma:</strong> Se você morrer, o papel do seu alvo (escolhido na primeira noite) será revelado para todos!</p>
+                        <p><strong>Comparar Times:</strong> Duas vezes por jogo, à noite, use /comparar [jogador1] [jogador2] para saber se são da mesma facção.</p>
+                        <p><strong>Vitória por Sobrevivência:</strong> Se você estiver vivo quando a Cidade ou os Vilões vencerem, você vence junto.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Bruxo</button>
+                    <div class="role-content">
+                        <p><strong>Poções:</strong> Você tem UMA Poção da Vida (/reviver) e UMA da Morte (/eliminar). Você só pode usar UMA delas durante todo o jogo.</p>
+                        <p><strong>Condição de Vitória:</strong> Você vence junto com uma facção se sua única ação com poção for decisiva para a vitória dela.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Cupido</button>
+                    <div class="role-content">
+                        <p><strong>Flechar Amantes:</strong> Na primeira noite, use /apaixonar [jogador1] [jogador2] para formar um casal.</p>
+                        <p><strong>Vitória por Amor:</strong> Se o casal sobreviver e a facção de um deles vencer, o outro vence junto. Se o casal for o último sobrevivente, eles (e você) vencem sozinhos.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">A Praga</button>
+                    <div class="role-content">
+                        <p><strong>Paciente Zero:</strong> Na primeira noite, infecte um alvo que será o único a poder espalhar a doença.</p>
+                        <p><strong>Exterminar:</strong> Uma vez por jogo, à noite, use /exterminar para eliminar todos os jogadores infectados.</p>
+                        <p><strong>Condição de Vitória:</strong> Você vence sozinho se usar /exterminar e eliminar, no mínimo, 4 jogadores de uma só vez.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Corruptor</button>
+                    <div class="role-content">
+                        <p><strong>Corromper:</strong> Toda noite, use /corromper [nome_jogador] para bloquear a habilidade de um alvo.</p>
+                        <p><strong>Condição de Vitória:</strong> Você vence sozinho se estiver vivo no final do jogo e nenhuma outra facção tiver cumprido sua condição de vitória.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Caçador de Cabeças</button>
+                    <div class="role-content">
+                        <p><strong>O Contrato:</strong> No início do jogo, você recebe o nome de um alvo.</p>
+                        <p><strong>Vitória por Contrato:</strong> Se você conseguir que a cidade linche o seu alvo e você estiver vivo, você vence o jogo sozinho.</p>
+                        <p><strong>Plano B:</strong> Se o seu alvo morrer por outro meio, você se torna um Cidadão Comum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="social-links">
         <a href="https://instagram.com/sergioo_1918" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.917 3.917 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.718-.891.923-1.417.198-.51.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.297c-.04-.852-.174-1.433-.372-1.942a3.916 3.916 0 0 0-.923-1.417A3.916 3.916 0 0 0 13.24.42c-.51-.198-1.092-.333-1.942-.372C10.445.01 10.173 0 8 0zm0 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.486.039.843.047 1.096.047 3.232s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.486a2.47 2.47 0 0 1-.599.92c-.28.28-.546.453-.92.598-.282.11-.705.24-1.486.275-.843.038-1.096.047-3.232.047s-2.389-.009-3.232-.047c-.78-.036-1.203-.166-1.486-.275a2.47 2.47 0 0 1-.92-.598 2.47 2.47 0 0 1-.599-.92c-.11-.282-.24-.705-.275-1.486-.038-.843-.046-1.096-.046-3.232s.008-2.389.046-3.232c.036-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.486-.275.843-.039 1.096-.046 3.232-.046zM8 4.202c-2.126 0-3.858 1.732-3.858 3.858s1.732 3.858 3.858 3.858 3.858-1.732 3.858-3.858S10.126 4.202 8 4.202zm0 6.31c-1.35 0-2.452-1.102-2.452-2.452s1.102-2.452 2.452-2.452 2.452 1.102 2.452 2.452-1.102 2.452-2.452 2.452zm3.393-5.266a.94.94 0 1 0 0-1.88.94.94 0 0 0 0 1.88z"/>
+                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.917 3.917 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.718-.891.923-1.417.198-.51.333-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.297c-.04-.852-.174-1.433-.372-1.942a3.916 3.916 0 0 0-.923-1.417A3.916 3.916 0 0 0 13.24.42c-.51-.198-1.092-.333-1.942-.372C10.445.01 10.173 0 8 0zm0 1.44c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.282.24.705.275 1.486.039.843.047 1.096.047 3.232s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.486a2.47 2.47 0 0 1-.599.92c-.28.28-.546.453-.92.598-.282.11-.705.24-1.486.275-.843.038-1.096.047-3.232.047s-2.389-.009-3.232-.047c-.78-.036-1.203-.166-1.486-.275a2.47 2.47 0 0 1-.92-.598 2.47 2.47 0 0 1-.599-.92c-.11-.282-.24-.705-.275-1.486-.038-.843-.046-1.096-.046-3.232s.008-2.389.046-3.232c.036-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.486-.275.843-.039 1.096-.046 3.232-.046zM8 4.202c-2.126 0-3.858 1.732-3.858 3.858s1.732 3.858 3.858 3.858 3.858-1.732 3.858-3.858S10.126 4.202 8 4.202zm0 6.31c-1.35 0-2.452-1.102-2.452-2.452s1.102-2.452 2.452-2.452 2.452 1.102 2.452 2.452-1.102 2.452-2.452-2.452zm3.393-5.266a.94.94 0 1 0 0-1.88.94.94 0 0 0 0 1.88z"/>
             </svg>
         </a>
         <a href="mailto:cidadedorme6@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Envie um e-mail">
@@ -109,8 +263,8 @@
     </footer>
 
     <script>
-        // O SCRIPT JAVASCRIPT PERMANECE O MESMO
         document.addEventListener('DOMContentLoaded', () => {
+            // SCRIPT DO CARROSSEL
             const carouselContainer = document.querySelector('.carousel-container');
             const slide = document.querySelector('.carousel-slide');
             const images = document.querySelectorAll('.carousel-slide img');
@@ -135,13 +289,12 @@
             const dots = document.querySelectorAll('.carousel-dots .dot');
 
             function goToSlide(index) {
-    if (index < 0 || index >= totalSlides) return;
-    // CÁLCULO CORRIGIDO:
-    const offset = -index * (100 / totalSlides); 
-    slide.style.transform = `translateX(${offset}%)`;
-    currentIndex = index;
-    updateDots();
-}
+                if (index < 0 || index >= totalSlides) return;
+                const offset = -index * (100 / totalSlides); 
+                slide.style.transform = `translateX(${offset}%)`;
+                currentIndex = index;
+                updateDots();
+            }
 
             function updateDots() {
                 dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
@@ -190,6 +343,21 @@
 
             goToSlide(0);
             startAutoSlide();
+
+            // SCRIPT DO ACORDEÃO DE FUNÇÕES
+            const roleTriggers = document.querySelectorAll('.role-trigger');
+
+            roleTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    trigger.classList.toggle('active');
+                    const content = trigger.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
         });
     </script>
 </body>

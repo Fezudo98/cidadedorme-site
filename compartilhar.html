@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo da Partida - Cidade Dorme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1e1e24;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            line-height: 1.5;
+        }
+        #summary-card {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            margin-bottom: 30px;
+            display: none; /* Escondido por padrão */
+        }
+        .download-button {
+            display: none; /* Escondido por padrão */
+            background-color: #5865F2; /* Cor do Discord */
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .download-button:hover {
+            background-color: #4f5bda;
+        }
+        #loading-message {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seu Resumo da Partida</h1>
+        <p id="instructions">Pressione e segure na imagem para salvá-la no seu celular. Depois, é só compartilhar nos seus Stories!</p>
+        
+        <img id="summary-card" src="" alt="Resumo da sua partida de Cidade Dorme">
+        
+        <a id="download-btn" class="download-button" href="#" download="cidade-dorme-resumo.png">Salvar Imagem</a>
+        
+        <p id="loading-message">Carregando seu resumo...</p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const imageUrl = params.get('img');
+            
+            const cardImage = document.getElementById('summary-card');
+            const downloadButton = document.getElementById('download-btn');
+            const loadingMessage = document.getElementById('loading-message');
+            const instructions = document.getElementById('instructions');
+
+            if (imageUrl) {
+                cardImage.src = imageUrl;
+                downloadButton.href = imageUrl;
+
+                // Mostra a imagem e o botão quando ela terminar de carregar
+                cardImage.onload = () => {
+                    loadingMessage.style.display = 'none';
+                    instructions.style.display = 'block';
+                    cardImage.style.display = 'block';
+                    downloadButton.style.display = 'inline-block';
+                };
+                cardImage.onerror = () => {
+                    loadingMessage.textContent = 'Ocorreu um erro ao carregar a imagem.';
+                }
+            } else {
+                loadingMessage.textContent = 'Nenhum resumo de partida encontrado.';
+            }
+        };
+    </script>
+</body>
+</html>

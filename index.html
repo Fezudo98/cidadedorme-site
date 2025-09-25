@@ -343,150 +343,148 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-            /**
-             * Função reutilizável para inicializar qualquer carrossel
-             * @param {string} containerSelector - O seletor CSS para o container do carrossel (ex: '.carousel-container')
-             */
-            function initializeCarousel(containerSelector) {
-                const carouselContainer = document.querySelector(containerSelector);
-                if (!carouselContainer) {
-                    // Se o carrossel não existir na página, não faz nada
-                    return;
-                }
+        /**
+         * Função reutilizável para inicializar qualquer carrossel
+         * @param {string} containerSelector - O seletor CSS para o container do carrossel (ex: '.carousel-container')
+         */
+        function initializeCarousel(containerSelector) {
+            const carouselContainer = document.querySelector(containerSelector);
+            if (!carouselContainer) {
+                return;
+            }
 
-                // Seleciona os elementos DENTRO do container específico
-                const slide = carouselContainer.querySelector('div:first-child'); // Pega o primeiro div (o slide)
-                const images = slide.querySelectorAll('img');
-                const prevButton = carouselContainer.querySelector('.carousel-button.prev');
-                const nextButton = carouselContainer.querySelector('.carousel-button.next');
-                const dotsContainer = carouselContainer.nextElementSibling; // Pega o container de dots, que é o irmão seguinte
+            const slide = carouselContainer.querySelector('div:first-child');
+            const images = slide.querySelectorAll('img');
+            const prevButton = carouselContainer.querySelector('.carousel-button.prev');
+            const nextButton = carouselContainer.querySelector('.carousel-button.next');
+            const dotsContainer = carouselContainer.nextElementSibling;
 
-                if (!slide || images.length === 0 || !prevButton || !nextButton || !dotsContainer) {
-                    console.error("Faltam elementos essenciais para o carrossel:", containerSelector);
-                    return;
-                }
+            if (!slide || images.length === 0 || !prevButton || !nextButton || !dotsContainer) {
+                console.error("Faltam elementos essenciais para o carrossel:", containerSelector);
+                return;
+            }
 
-                let currentIndex = 0;
-                const totalSlides = images.length;
-                let autoSlideInterval;
+            let currentIndex = 0;
+            const totalSlides = images.length;
+            let autoSlideInterval;
 
-                // Limpa os dots antigos e cria novos
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i < totalSlides; i++) {
-                    const dot = document.createElement('span');
-                    dot.classList.add('dot');
-                    dot.addEventListener('click', () => {
-                        goToSlide(i);
-                        resetAutoSlide();
-                    });
-                    dotsContainer.appendChild(dot);
-                }
-                const dots = dotsContainer.querySelectorAll('.dot');
-                
-                // Adapta o tamanho do slide para conter todas as imagens
-                slide.style.width = `calc(100% * ${totalSlides})`;
-
-                function goToSlide(index) {
-                    // Lógica para carrossel infinito
-                    if (index < 0) {
-                        index = totalSlides - 1;
-                    } else if (index >= totalSlides) {
-                        index = 0;
-                    }
-                    
-                    const offset = -index * (100 / totalSlides);
-                    slide.style.transform = `translateX(${offset}%)`;
-                    currentIndex = index;
-                    updateDots();
-                }
-
-                function updateDots() {
-                    dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
-                }
-
-                function showNextSlide() {
-                    goToSlide(currentIndex + 1);
-                }
-
-                function showPrevSlide() {
-                    goToSlide(currentIndex - 1);
-                }
-
-                function startAutoSlide() {
-                    // Só inicia o auto-slide se houver mais de uma imagem
-                    if (totalSlides > 1) {
-                        autoSlideInterval = setInterval(showNextSlide, 5000);
-                    }
-                }
-
-                function resetAutoSlide() {
-                    clearInterval(autoSlideInterval);
-                    startAutoSlide();
-                }
-
-                nextButton.addEventListener('click', () => {
-                    showNextSlide();
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
                     resetAutoSlide();
                 });
-                prevButton.addEventListener('click', () => {
-                    showPrevSlide();
-                    resetAutoSlide();
-                });
-                
-                // Adiciona suporte a swipe em telas de toque
-                let touchStartX = 0;
-                let touchEndX = 0;
-                const swipeThreshold = 50;
+                dotsContainer.appendChild(dot);
+            }
+            const dots = dotsContainer.querySelectorAll('.dot');
 
-                carouselContainer.addEventListener('touchstart', e => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
+            // Adapta o tamanho do slide para conter todas as imagens
+            slide.style.width = `calc(100% * ${totalSlides})`;
 
-                carouselContainer.addEventListener('touchend', e => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                });
-                
-                function handleSwipe() {
-                    const swipeDistance = touchEndX - touchStartX;
-                    if (Math.abs(swipeDistance) < swipeThreshold) return; 
+            // =======================================================
+            // ========= CORREÇÃO ADICIONADA AQUI =========
+            // =======================================================
+            // Define a largura de CADA imagem para ser uma fração do slide total
+            images.forEach(img => {
+                img.style.width = `calc(100% / ${totalSlides})`;
+            });
+            // =======================================================
 
-                    if (swipeDistance < 0) { 
-                        showNextSlide();
-                    } else { 
-                        showPrevSlide();
-                    }
-                    resetAutoSlide();
+            function goToSlide(index) {
+                if (index < 0) {
+                    index = totalSlides - 1;
+                } else if (index >= totalSlides) {
+                    index = 0;
                 }
+                
+                const offset = -index * (100 / totalSlides);
+                slide.style.transform = `translateX(${offset}%)`;
+                currentIndex = index;
+                updateDots();
+            }
 
-                // Inicia o carrossel
-                goToSlide(0);
+            function updateDots() {
+                dots.forEach((dot, index) => dot.classList.toggle('active', index === currentIndex));
+            }
+
+            function showNextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+
+            function showPrevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+
+            function startAutoSlide() {
+                if (totalSlides > 1) {
+                    autoSlideInterval = setInterval(showNextSlide, 5000);
+                }
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
                 startAutoSlide();
             }
 
-            // =======================================================
-            // ========= INICIALIZA OS DOIS CARROSSÉIS AQUI =========
-            // =======================================================
-            initializeCarousel('.carousel-container'); // O carrossel original de screenshots
-            initializeCarousel('.character-carousel-container'); // O novo carrossel de personagens
-
-            // SCRIPT DO ACORDEÃO DE FUNÇÕES (existente)
-            const roleTriggers = document.querySelectorAll('.role-trigger');
-            roleTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    trigger.classList.toggle('active');
-                    const content = trigger.nextElementSibling;
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    }
-                });
+            nextButton.addEventListener('click', () => {
+                showNextSlide();
+                resetAutoSlide();
             });
+            prevButton.addEventListener('click', () => {
+                showPrevSlide();
+                resetAutoSlide();
+            });
+            
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const swipeThreshold = 50;
 
+            carouselContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeDistance = touchEndX - touchStartX;
+                if (Math.abs(swipeDistance) < swipeThreshold) return; 
+
+                if (swipeDistance < 0) { 
+                    showNextSlide();
+                } else { 
+                    showPrevSlide();
+                }
+                resetAutoSlide();
+            }
+
+            goToSlide(0);
+            startAutoSlide();
+        }
+
+        initializeCarousel('.carousel-container');
+        initializeCarousel('.character-carousel-container');
+
+        const roleTriggers = document.querySelectorAll('.role-trigger');
+        roleTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                trigger.classList.toggle('active');
+                const content = trigger.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
         });
-    </script>
+
+    });
+</script>
 </body>
 </html>

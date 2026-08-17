@@ -162,6 +162,7 @@
                     <div class="role-content">
                         <p style="font-style:italic; opacity:0.85;">Você é um mestre da dedução movido a lupa, café frio e teorias que, surpreendentemente, às vezes fazem sentido.</p>
                         <p><strong>Marcar Alvos:</strong> Toda noite, use /marcar para vigiar um ou dois jogadores. Se um deles for morto, você receberá o nome de dois suspeitos: o assassino e um inocente.</p>
+                        <p><strong>Rastros:</strong> Se ninguém marcado morrer, você não fica no escuro — se exatamente uma pessoa se aproximou de um dos seus alvos naquela noite, você descobre o nome dela.</p>
                     </div>
                 </div>
                 <div class="role-card">
@@ -177,6 +178,14 @@
                         <p style="font-style:italic; opacity:0.85;">Você conversa com os mortos, que geralmente têm menos paciência que os vivos. Um fantasma sob comando por partida — sem reembolso.</p>
                         <p><strong>Converter Fantasma:</strong> Uma vez por jogo, à noite, use /mediunidade [nome_jogador_morto] para transformar um jogador morto em um Fantasma sob seu controle.</p>
                         <p><strong>Visão Espectral:</strong> O Fantasma pode /assombrar um jogador por noite, e ambos recebem um relatório de quem visitou o alvo e quem o alvo visitou.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Advogado</button>
+                    <div class="role-content">
+                        <p style="font-style:italic; opacity:0.85;">Você não investiga, não atira e não protege ninguém à noite — sua arma é o processo. Uma objeção bem colocada na hora certa já livrou gente muito mais culpada.</p>
+                        <p><strong>Escudo do Dia:</strong> Uma vez por jogo, durante a votação, use /blindar para ativar seu escudo. Se um linchamento aconteceria naquele dia, ele é cancelado por completo — sem revelar quem seria o alvo, nem pra você mesmo.</p>
+                        <p><strong>Compromisso às Cegas:</strong> Você ativa o escudo sem saber se vai rolar linchamento naquele dia. Se a votação empatar ou for pulada, seu escudo é gasto à toa.</p>
                     </div>
                 </div>
                 <div class="role-card">
@@ -198,7 +207,7 @@
                         <p style="font-style:italic; opacity:0.85;">Você é o cérebro da operação — ou pelo menos o que sobrou de cérebro depois de tanto planejar crime. Lidera os ataques, sabota o dia e ainda acha tempo pra corromper corações.</p>
                         <p><strong>Voto de Liderança:</strong> Seu voto na eliminação noturna dos Vilões tem peso 2.</p>
                         <p><strong>Sabotar:</strong> Uma vez por jogo, durante o dia, use /sabotar para forçar a chegada da noite, cancelando qualquer votação.</p>
-                        <p><strong>Possuir:</strong> Durante a noite, use /possuir [nome] para tentar converter um jogador (ação paralela ao voto de morte, não substitui). Após 3 pontos de possessão, o alvo se torna um Assassino Simples. (Apenas em jogos com 11+ jogadores).</p>
+                        <p><strong>Possuir:</strong> Durante a noite, use /possuir [nome] para tentar converter um jogador (ação paralela ao voto de morte, não substitui). O alvo se torna um Assassino Simples ao acumular pontos suficientes: 3 pontos em jogos com 11+ jogadores, ou 5 pontos em jogos de 8 a 10. Indisponível abaixo de 8 jogadores.</p>
                     </div>
                 </div>
                 <div class="role-card">
@@ -215,6 +224,14 @@
                         <p style="font-style:italic; opacity:0.85;">Você é o espião do grupo: sabe tudo de todo mundo e ainda assim finge que só está ali de boa.</p>
                         <p><strong>Espionagem:</strong> Na Noite 1 ou 2, use /escolher_alvo [nome] para descobrir o papel exato de um jogador.</p>
                         <p><strong>Fraudar Votação:</strong> Uma vez por jogo, durante a votação, use /fraudar para embaralhar aleatoriamente o alvo de todos os votos.</p>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <button class="role-trigger">Falsificador</button>
+                    <div class="role-content">
+                        <p style="font-style:italic; opacity:0.85;">Você não é o músculo do grupo, é quem limpa a cena depois. Uma prova sumida aqui, um detalhe trocado ali — quando o Detetive chega, não sobrou nada útil pra achar.</p>
+                        <p><strong>Voto de Morte:</strong> Você também participa da votação noturna dos Vilões para escolher quem será eliminado.</p>
+                        <p><strong>Encobrir (1x por jogo):</strong> Use /encobrir [nome] para preparar uma cena de crime falsa em cima de alguém. Se esse alvo morrer — nessa noite ou em qualquer noite futura —, a pista que o Detetive receberia sobre essa morte é destruída. Usar essa habilidade custa seu voto de morte enquanto ela estiver em preparação.</p>
                     </div>
                 </div>
                 <div class="role-card">
@@ -309,10 +326,13 @@
                 <img src="arte/Detetive.png" alt="Arte do Detetive">
                 <img src="arte/vidente-de-aura.png" alt="Arte do Vidente de Aura">
                 <img src="arte/Medium.png" alt="Arte do Medium">
+                <img src="arte/advogado.png" alt="Arte do Advogado">
                 <img src="arte/cidadao_comum.png" alt="Arte do Cidadão Comum">
                 <img src="arte/assassino-alfa.png" alt="Arte do Assassino Alfa">
                 <img src="arte/assassino-junior.png" alt="Arte do Assassino Júnior">
                 <img src="arte/cumplice.png" alt="Arte do Cúmplice">
+                <img src="arte/falsificador.png" alt="Arte do Falsificador">
+                <img src="arte/assassino-simples.png" alt="Arte do Assassino Simples">
                 <img src="arte/palhaco.png" alt="Arte do Palhaço">
                 <img src="arte/fofoqueiro.png" alt="Arte do Fofoqueiro">
                 <img src="arte/Bruxo.png" alt="Arte do Bruxo">
